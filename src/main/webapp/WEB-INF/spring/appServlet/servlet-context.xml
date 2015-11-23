@@ -20,13 +20,89 @@
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	<!-- <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+	<bean name="/welcome.htm" class="com.carl.carlapp.controller.HelloWorldController"/>
+	<bean name="/process*.htm" class="com.carl.carlapp.controller.HelloWorldController"/>
+	 -->
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<value>
+				/welcome.htm=welcomeController
+				/*/welcome.htm=welcomeController
+				/helloGest.htm=helloGestController
+			</value>
+		</property>
+	</bean>
+	<bean id="welcomeController" class="com.carl.carlapp.controller.HelloWorldController"/>
+	<bean id="helloGestController" class="com.carl.carlapp.controller.HelloGestController"/>
+	 -->
+	 
+	<!-- HelloWorldController -> /helloworld*  HelloGuestController -> /helloguest*  -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"></bean>
+	<bean class="com.carl.carlapp.controller.HelloWorldController"/>
+	<bean class="com.carl.carlapp.controller.HelloGestController"/> -->
 	
-	<!-- json转换器 -->
-	<!-- <bean id="jsonConverter"
-	 class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"> 
-	  	<property name="supportedMediaTypes" value="application/json" />
-	</bean> -->
+	<!-- HelloWorldController -> /helloWorld*  HelloGuestController -> /helloGuest*  -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
+		<property name="caseSensitive" value="true"></property>
+	</bean>
+	<bean class="com.carl.carlapp.controller.HelloWorldController"/>
+	<bean class="com.carl.carlapp.controller.HelloGestController"/> -->
 	
+	
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<value>
+				/index.htm=welcomeController
+				/welcome.htm=welcomeController
+				/main.htm=welcomeController
+				/home.htm=welcomeController
+			</value>
+		</property>
+		<property name="order" value="0"></property>
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
+		<property name="caseSensitive" value="true"></property>
+		<property name="order" value="1"></property>
+	</bean>
+	<bean id="welcomeController" class="com.carl.carlapp.controller.HelloWorldController"/>
+	<bean class="com.carl.carlapp.controller.HelloGestController"/> -->
+	
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/welcome.htm">welcomeController</prop>
+			</props>
+		</property>
+		<property name="interceptors">
+			<list>
+				<ref bean="maintenanceInterceptor" />
+				<ref bean="executeTimeInterceptor" />
+			</list>
+		</property>
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="executeTimeInterceptor" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="welcomeController" 
+			class="com.carl.carlapp.controller.HelloWorldController"/>
+			
+	<bean class="com.carl.carlapp.controller.MaintenanceController"/>
+	
+	<bean id="executeTimeInterceptor"
+			class="com.carl.carlapp.interceptor.ExecuteTimeInterceptor"/>
+	
+	<bean id="maintenanceInterceptor"
+			class="com.carl.carlapp.interceptor.MaintenanceInterceptor">
+		<property name="maintenanceStartTime" value="13"></property>
+		<property name="maintenanceEndTime" value="23"></property>
+		<property name="maintenanceMapping" value="/carlspring/maintenance.htm"></property>
+	</bean>
 	
 	<context:component-scan base-package="com.carl.carlapp" />
 </beans>

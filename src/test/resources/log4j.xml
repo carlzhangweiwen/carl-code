@@ -11,8 +11,8 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.carl.carlt">
-		<level value="info" />
+	<logger name="com.carl.carlapp">
+		<level value="debug" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
@@ -34,7 +34,7 @@
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="info" />
+		<priority value="debug" />
 		<appender-ref ref="console" />
 	</root>
 	
