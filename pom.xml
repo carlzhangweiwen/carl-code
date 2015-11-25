@@ -122,7 +122,7 @@
 		    <version>1.7</version>
 		</dependency>
 		
-		<!-- json depend on -->
+		<!-- json depends on -->
 		<dependency>  
 		    <groupId>org.codehaus.jackson</groupId>  
 		    <artifactId>jackson-core-asl</artifactId>  
@@ -133,6 +133,18 @@
 		    <artifactId>jackson-mapper-asl</artifactId>  
 		    <version>1.8.4</version>  
 		</dependency> 
+		
+		<!-- validator depends on -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.0.1.Final</version>
+		</dependency>
 	
 		<!-- Test -->
 		<dependency>
