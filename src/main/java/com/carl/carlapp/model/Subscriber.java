@@ -16,11 +16,12 @@ public class Subscriber {
 		@NotEmpty( message="username can't be null") 
 	    private String name;
 	     
-	   /* @NotEmpty 
-	    @Email
+	    @NotEmpty ( message="mail can't be null") 
+	    @Email( message="not a email") 
 	    private String email;
 	     
-	    @NotNull @Min(13) @Max(110)
+	    @NotNull 
+	    @Min(13) @Max(110)
 	    private Integer age;
 	     
 	    @Size(min=10)
@@ -29,7 +30,7 @@ public class Subscriber {
 	     
 	    @DateTimeFormat(pattern="MM/dd/yyyy")
 	    @NotNull @Past
-	    private Date birthday;*/
+	    private Date birthday;
 
 
 		public String getName() {
@@ -39,6 +40,46 @@ public class Subscriber {
 
 		public void setName(String name) {
 			this.name = name;
+		}
+
+
+		public String getEmail() {
+			return email;
+		}
+
+
+		public void setEmail(String email) {
+			this.email = email;
+		}
+
+
+		public Integer getAge() {
+			return age;
+		}
+
+
+		public void setAge(Integer age) {
+			this.age = age;
+		}
+
+
+		public String getPhone() {
+			return phone;
+		}
+
+
+		public void setPhone(String phone) {
+			this.phone = phone;
+		}
+
+
+		public Date getBirthday() {
+			return birthday;
+		}
+
+
+		public void setBirthday(Date birthday) {
+			this.birthday = birthday;
 		}
 
 

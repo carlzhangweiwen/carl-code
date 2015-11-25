@@ -1,68 +1,15 @@
 package carlspringtest;
 
-import java.util.Set;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+public class CarTest {
 
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import com.carl.carlapp.model.Car;
-
-public class CarTest extends Assert {
-	private static Validator validator;
-
-    @BeforeClass
-    public static void setUp() {
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        validator = factory.getValidator();
-    }
-
-    @Test
-    public void manufacturerIsNull() {
-        Car car = new Car(null, "DD-AB-123", 4);
-
-        Set<ConstraintViolation<Car>> constraintViolations =
-            validator.validate(car);
-
-        assertEquals(1, constraintViolations.size());
-        assertEquals("may not be null", constraintViolations.iterator().next().getMessage());
-    }
-
-    @Test
-    public void licensePlateTooShort() {
-        Car car = new Car("Morris", "D", 4);
-
-        Set<ConstraintViolation<Car>> constraintViolations = 
-            validator.validate(car);
-
-        assertEquals(1, constraintViolations.size());
-        assertEquals("size must be between 2 and 14", constraintViolations.iterator().next().getMessage());
-    }
-    
-    @Test
-    public void seatCountTooLow() {
-        Car car = new Car("Morris", "DD-AB-123", 1);
-
-        Set<ConstraintViolation<Car>> constraintViolations =
-            validator.validate(car);
-
-        assertEquals(1, constraintViolations.size());
-        assertEquals("must be greater than or equal to 2", constraintViolations.iterator().next().getMessage());
-    }
-
-    @Test
-    public void carIsValid() {
-        Car car = new Car("Morris", "DD-AB-123", 2);
-
-        Set<ConstraintViolation<Car>> constraintViolations =
-            validator.validate(car);
-
-        assertEquals(0, constraintViolations.size());
-    }
+	public static void main(String[] args)throws Exception {
+			String mytext = java.net.URLEncoder.encode("http://dengwenjun.iteye.com/blog/1961267?jodj=中国&jdong=222", "utf-8");
+			String mytext2 = java.net.URLDecoder.decode(mytext, "utf-8");
+		System.out.println(mytext);//http%3A%2F%2Fdengwenjun.iteye.com%2Fblog%2F1961267%3Fjodj%3D%E4%B8%AD%E5%9B%BD%26jdong%3D222
+		System.out.println(mytext2);//http://dengwenjun.iteye.com/blog/1961267?jodj=中国&jdong=222
+	}
+	   
+	   
 
 }

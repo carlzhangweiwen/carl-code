@@ -8,7 +8,12 @@
 </head>
 <body>
 <form action="form" method="post">
-<span>姓名</span><input name="name" type="text">
+<div>
+	<span>姓名</span><input name="name" type="text">
+</div>
+<div>
+	<span>邮箱</span><input name="email" type="text">
+</div>
 <input type="submit" value="submit">
 </form>
 </body>
