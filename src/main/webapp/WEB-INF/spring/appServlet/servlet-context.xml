@@ -68,7 +68,7 @@
 	<bean id="welcomeController" class="com.carl.carlapp.controller.HelloWorldController"/>
 	<bean class="com.carl.carlapp.controller.HelloGestController"/> -->
 	
-	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
 				<prop key="/welcome.htm">welcomeController</prop>
@@ -102,6 +102,14 @@
 		<property name="maintenanceStartTime" value="13"></property>
 		<property name="maintenanceEndTime" value="23"></property>
 		<property name="maintenanceMapping" value="/carlspring/maintenance.htm"></property>
+	</bean> -->
+	
+	
+
+	<!-- Register the Customer.properties -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="message" />
 	</bean>
 	
 	<context:component-scan base-package="com.carl.carlapp" />

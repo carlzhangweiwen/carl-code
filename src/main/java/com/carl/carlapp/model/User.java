@@ -1,4 +1,4 @@
-package com.carl.carlapp.bean;
+package com.carl.carlapp.model;
 
 public class User {
 	private String name;

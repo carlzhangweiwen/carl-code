@@ -1,4 +1,4 @@
-package com.carl.carlapp.bean;
+package com.carl.carlapp.model;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;

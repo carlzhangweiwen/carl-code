@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.carl.carlapp.bean.Coffee;
+import com.carl.carlapp.model.Coffee;
 
 @Controller
 @RequestMapping(value="/coffee")
