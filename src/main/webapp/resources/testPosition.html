@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>test Position</title>
+<style>
+	*{margin:0;padding:0}
+	body{
+		font-size:200%;
+		font-family: sans-serif;
+	}
+	.po{
+		position:relative;
+		display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox;
+	    display: -webkit-flex; 
+	    display: flex; 
+	}
+	.po>div{
+	    margin-left: 0.406em;
+		width:2em;
+		height:2.125em;
+		position:relative;
+	}
+	/* .po>div:nth-child(even){
+		background:red;
+	}
+	.po>div:nth-child(odd){
+		background:gray;
+	} */
+	.pic{
+		box-sizing: border-box;
+	    line-height: 0;
+	    width: 1.203em;
+	    height: 1.203em;
+	    position: absolute;
+	    background-image: url(https://gw.alicdn.com/tps/i1/TB1eSyDGFXXXXaRXVXXszjdGpXX-140-140.png?imgtag=avatar);
+	    background-size: contain;
+	    background-position: 50% 50%;
+	    background-repeat: no-repeat;
+    }
+    .par{
+        box-sizing: border-box;
+	    line-height: 0;
+	    margin-top: 0.313em;
+	    margin-left: 0.391em;
+	    width: 1.609em;
+	    height: 1.203em;
+	    position: relative;
+    }
+    .f{
+    	box-sizing: border-box;
+	    text-align: center;
+	    font-size: 12px;
+	    color: rgb(102, 102, 102);
+	    /* width: 2em; */
+	    padding-top:0.42em;
+	   /*  height: 0.594em;
+	    line-height: 0.594em; */
+    }
+</style>
+</head>
+<body>
+	<div class="po">
+		<div>
+			<div class="par">
+				<div class="pic"></div>
+			</div>
+			<div class="f">天茂</div>
+		</div>
+		<div>
+			<div class="par">
+				<div class="pic"></div>
+			</div>
+			<div class="f">聚划算</div>
+		</div>
+		<div>
+			<div class="par">
+				<div class="pic"></div>
+			</div>
+			<div class="f">我要旅行</div>
+		</div>
+		<div>
+			<div class="par">
+				<div class="pic"></div>
+			</div>
+			<div class="f">分类</div>
+		</div>
+	</div>
+	<div class="po">
+		<div>
+			<div class="par">
+				<div class="pic"></div>
+			</div>
+			<div class="f">天茂</div>
+		</div>
+		<div>
+			<div class="par">
+				<div class="pic"></div>
+			</div>
+			<div class="f">聚划算</div>
+		</div>
+		<div>
+			<div class="par">
+				<div class="pic"></div>
+			</div>
+			<div class="f">我要旅行</div>
+		</div>
+		<div>
+			<div class="par">
+				<div class="pic"></div>
+			</div>
+			<div class="f">分类</div>
+		</div>
+	</div>
+</body>
+</html>
