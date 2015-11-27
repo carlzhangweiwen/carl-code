@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>test swiper</title>
+<meta name="viewport" content="initial-scale=1">
+
+<link rel="stylesheet" href="./core/css/swiper.min.css">
+<link rel="stylesheet" href="./core/css/animate.min.css">
+<script src="./core/js/zepto.min.js"></script>
+<script src="./core/js/swiper.min.js"></script>
+<script src="./core/js/swiper.animate.min.js"></script>
+
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-weight: 300;
+    font-family: 'Microsoft Yahei',Tahoma,Helvetica,Arial,sans-serif;
+}
+.bg1,.bg2,.bg3,.bg4,.bg5 {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: 50% 50%;
+	position:absolute;
+}
+.bg1{
+	background-image: url(http://bigtu.eastday.com/img/201302/05/0/4233962510891962636.jpg);
+}
+.bg2 {
+	background-image: url(http://static.panoramio.com/photos/large/44952663.jpg);
+}
+
+.bg3 {
+	background-image: url(http://img4.duitang.com/uploads/blog/201403/30/20140330204118_QyFTR.thumb.600_0.jpeg);
+}
+
+.bg4 {
+	background-image: url(http://imgsrc.baidu.com/forum/w%3D580/sign=3203ff120946f21fc9345e5bc6266b31/25a467600c3387440e319e95520fd9f9d52aa0e0.jpg);
+}
+
+.bg5 {
+	background-image: url(http://imgsrc.baidu.com/forum/pic/item/18d8bc3eb13533fa3c345780a8d3fd1f40345b9a.jpg);
+}
+
+.mfont {
+	color: rgb(255, 255, 255);
+	font-size: small;
+	line-height: 13px;
+}
+.black-box{
+	border-radius: 1.5em;
+    border: 0px solid rgb(0, 0, 0);
+    z-index: 2;
+    color: rgb(103, 103, 103);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+    opacity: 1;
+    transform: none;
+    background-color: rgba(38, 38, 38, 0.498039);
+    padding:1em;
+}
+
+.element-box{
+	position:absolute;
+    width:80%;
+    height:3em;
+    margin-left:10%;
+    padding-top:0.3em;
+    top:0.3em;
+}
+.element-box1{
+	position:absolute;
+    width:80%;
+    height:3em;
+    margin-left:10%;
+    padding-top:0.3em;
+    bottom:2.5em;
+}
+</style>
+</head>
+
+<body>
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<!-------------slide1----------------->
+			<section class="swiper-slide">
+				<div class="bg1">
+					<div class="element-box1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="2s" swiper-animate-delay="0.5s">
+						<div style="text-align: center;" >
+							<div><span class="mfont">毁灭你，与我何干……</span></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-------------slide2----------------->
+			<section class="swiper-slide">
+				<div class="bg2">
+					<div class="element-box ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">
+						<div style="text-align: center;" >
+							<div><span class="mfont">在西方的天际， 正在云海中下沉的</span></div>
+							<div><span class="mfont">下沉的， 夕阳， 仿佛被融化了</span></div>
+							<div><span class="mfont">太阳的血在云海和天空中<br>弥漫开来</span></div>
+							<div><span class="mfont">映现出一大片壮丽的<br>血红......</span></div>
+						</div>
+					</div>
+					<div class="element-box1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="2s" swiper-animate-delay="1s">
+						<div style="text-align: center;" >
+							<div><span class="mfont">"这是人类的落日……"</span></div>
+							<div><span class="mfont">叶文洁轻轻地说 </span></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-------------slide3----------------->
+			<section class="swiper-slide">
+				<div class="bg3">
+					<div class="element-box ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">
+						<div class="ani" style="text-align: left;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">
+							<div><span class="mfont">“要多想。”<br>“想了以后呢?”<br>“北海，我只能告诉你那以前要多想。”</span></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-------------slide4----------------->
+			<section class="swiper-slide">
+				<div class="bg4">
+					<div class="element-box ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">
+						<div class="black-box">
+							<div class="ani" style="text-align: left;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">
+								<div><span class="mfont">但凡失去也是美<br>用你一分钟<br>都足够我生醉梦死</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-------------slide5----------------->
+			<section class="swiper-slide">
+				<div class="bg5">
+					<div class="element-box1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">
+						<div class="black-box">
+							<div class="ani" style="text-align: left;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">
+								<div><span class="mfont">未曾想执剑护天下<br>只想看尽世间繁华</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</div>
+	</div>
+
+<script type = "text/javascript">
+function fixPagesHeight() {
+	$('.swiper-slide,.swiper-container').css({
+		height: $(window).height(),
+	})
+}
+$(window).on('resize', function() {
+	fixPagesHeight();
+})
+fixPagesHeight();
+
+
+var mySwiper = new Swiper('.swiper-container', {
+    direction: 'vertical',
+	mousewheelControl: true,
+	//开启这个参数来计算每个slide的progress(进度)
+	watchSlidesProgress: true,
+	loop : true,
+	onInit: function(swiper) {
+		swiper.myactive = 0;
+		swiperAnimateCache(swiper); //隐藏动画元素 
+	    swiperAnimate(swiper); //初始化完成开始动画
+	}, 
+	onSlideChangeEnd: function(swiper){ 
+	   swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+	},
+	//当Swiper的progress被改变时执行。接受Swiper实例和progress作为参数（可选）。
+	onProgress: function(swiper) {
+		for (var i = 0; i < swiper.slides.length; i++) {
+			var slide = swiper.slides[i];
+			/**
+			 *对于slide的progress属性，活动的那个为0，其他的依次减1。例：如果一共有6个slide，活动的是第三个，从第一个到第六个的progress属性分别是：2、1、0、-1、-2、-3。
+			 *对于swiper的progress属性，活动的slide在最左（上）边时为0，活动的slide在最右（下）边时为1，其他情况平分。例：有6个slide，当活动的是第三个时swiper的progress属性是0.4，当活动的是第五个时swiper的progress属性是0.8。
+			 *swiper的progress其实就是wrapper的translate值的百分值，与activeIndex等属性不同，progress是随着swiper的切换而不停的变化，而不是在某个时间点突变。
+			 */
+			var progress = slide.progress;
+			var translate, boxShadow;
+
+			translate = progress * swiper.height * 0.8;
+			scale = 1 - Math.min(Math.abs(progress * 0.2), 1);
+			boxShadowOpacity = 0;
+
+			slide.style.boxShadow = '0px 0px 10px rgba(0,0,0,' + boxShadowOpacity + ')';
+
+			if (i == swiper.myactive) {
+				es = slide.style;
+				es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = 'translate3d(0,' + (translate) + 'px,0) scale(' + scale + ')';
+				es.zIndex=0;
+			}else{
+				es = slide.style;
+				es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform ='';
+				es.zIndex=1;
+			}
+		}
+	},
+	//回调函数，过渡结束时触发，接收Swiper实例作为参数
+	onTransitionEnd: function(swiper) {
+		swiper.myactive = swiper.activeIndex;
+	},
+	//回调函数，每次当Swiper开始过渡动画时持续执行。transtion获取到的是Swiper的speed值。
+	onSetTransition: function(swiper, speed) {
+		for (var i = 0; i < swiper.slides.length; i++) {
+			es = swiper.slides[i].style;
+			es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = speed + 'ms';
+		}
+	}
+});
+</script>
+
+</body>
+</html>
+
