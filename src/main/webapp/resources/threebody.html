@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>test swiper</title>
+<title>Three Body</title>
 <meta name="viewport" content="initial-scale=1">
 
 <link rel="stylesheet" href="./core/css/swiper.min.css">
@@ -10,6 +10,7 @@
 <script src="./core/js/zepto.min.js"></script>
 <script src="./core/js/swiper.min.js"></script>
 <script src="./core/js/swiper.animate.min.js"></script>
+<script src="./core/js/jweixin-1.0.0.js"></script>
 
 <style>
 * {
@@ -28,22 +29,22 @@ body{
 	position:absolute;
 }
 .bg1{
-	background-image: url(http://bigtu.eastday.com/img/201302/05/0/4233962510891962636.jpg);
+	background-image: url(./core/img/tb/bg01.jpg);
 }
 .bg2 {
-	background-image: url(http://static.panoramio.com/photos/large/44952663.jpg);
+	background-image: url(./core/img/tb/bg02.jpg);
 }
 
 .bg3 {
-	background-image: url(http://img4.duitang.com/uploads/blog/201403/30/20140330204118_QyFTR.thumb.600_0.jpeg);
+	background-image: url(./core/img/tb/bg03.jpg);
 }
 
 .bg4 {
-	background-image: url(http://imgsrc.baidu.com/forum/w%3D580/sign=3203ff120946f21fc9345e5bc6266b31/25a467600c3387440e319e95520fd9f9d52aa0e0.jpg);
+	background-image: url(./core/img/tb/bg04.jpg);
 }
 
 .bg5 {
-	background-image: url(http://imgsrc.baidu.com/forum/pic/item/18d8bc3eb13533fa3c345780a8d3fd1f40345b9a.jpg);
+	background-image: url(./core/img/tb/bg05.jpg);
 }
 
 .mfont {
@@ -153,71 +154,180 @@ body{
 	</div>
 
 <script type = "text/javascript">
-function fixPagesHeight() {
-	$('.swiper-slide,.swiper-container').css({
-		height: $(window).height(),
+
+$(function(){
+	function fixPagesHeight() {
+		$('.swiper-slide,.swiper-container').css({
+			height: $(window).height(),
+		})
+	}
+	$(window).on('resize', function() {
+		fixPagesHeight();
 	})
-}
-$(window).on('resize', function() {
 	fixPagesHeight();
-})
-fixPagesHeight();
 
 
-var mySwiper = new Swiper('.swiper-container', {
-    direction: 'vertical',
-	mousewheelControl: true,
-	//开启这个参数来计算每个slide的progress(进度)
-	watchSlidesProgress: true,
-	loop : true,
-	onInit: function(swiper) {
-		swiper.myactive = 0;
-		swiperAnimateCache(swiper); //隐藏动画元素 
-	    swiperAnimate(swiper); //初始化完成开始动画
-	}, 
-	onSlideChangeEnd: function(swiper){ 
-	   swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
-	},
-	//当Swiper的progress被改变时执行。接受Swiper实例和progress作为参数（可选）。
-	onProgress: function(swiper) {
-		for (var i = 0; i < swiper.slides.length; i++) {
-			var slide = swiper.slides[i];
-			/**
-			 *对于slide的progress属性，活动的那个为0，其他的依次减1。例：如果一共有6个slide，活动的是第三个，从第一个到第六个的progress属性分别是：2、1、0、-1、-2、-3。
-			 *对于swiper的progress属性，活动的slide在最左（上）边时为0，活动的slide在最右（下）边时为1，其他情况平分。例：有6个slide，当活动的是第三个时swiper的progress属性是0.4，当活动的是第五个时swiper的progress属性是0.8。
-			 *swiper的progress其实就是wrapper的translate值的百分值，与activeIndex等属性不同，progress是随着swiper的切换而不停的变化，而不是在某个时间点突变。
-			 */
-			var progress = slide.progress;
-			var translate, boxShadow;
+	var mySwiper = new Swiper('.swiper-container', {
+	    direction: 'vertical',
+		mousewheelControl: true,
+		//开启这个参数来计算每个slide的progress(进度)
+		watchSlidesProgress: true,
+		loop : true,
+		onInit: function(swiper) {
+			swiper.myactive = 0;
+			swiperAnimateCache(swiper); //隐藏动画元素 
+		    swiperAnimate(swiper); //初始化完成开始动画
+		}, 
+		onSlideChangeEnd: function(swiper){ 
+		   //swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+		},
+		//当Swiper的progress被改变时执行。接受Swiper实例和progress作为参数（可选）。
+		onProgress: function(swiper) {
+			for (var i = 0; i < swiper.slides.length; i++) {
+				var slide = swiper.slides[i];
+				/**
+				 *对于slide的progress属性，活动的那个为0，其他的依次减1。例：如果一共有6个slide，活动的是第三个，从第一个到第六个的progress属性分别是：2、1、0、-1、-2、-3。
+				 *对于swiper的progress属性，活动的slide在最左（上）边时为0，活动的slide在最右（下）边时为1，其他情况平分。例：有6个slide，当活动的是第三个时swiper的progress属性是0.4，当活动的是第五个时swiper的progress属性是0.8。
+				 *swiper的progress其实就是wrapper的translate值的百分值，与activeIndex等属性不同，progress是随着swiper的切换而不停的变化，而不是在某个时间点突变。
+				 */
+				var progress = slide.progress;
+				var translate, boxShadow;
 
-			translate = progress * swiper.height * 0.8;
-			scale = 1 - Math.min(Math.abs(progress * 0.2), 1);
-			boxShadowOpacity = 0;
+				translate = progress * swiper.height * 0.8;
+				scale = 1 - Math.min(Math.abs(progress * 0.2), 1);
+				boxShadowOpacity = 0;
 
-			slide.style.boxShadow = '0px 0px 10px rgba(0,0,0,' + boxShadowOpacity + ')';
+				slide.style.boxShadow = '0px 0px 10px rgba(0,0,0,' + boxShadowOpacity + ')';
 
-			if (i == swiper.myactive) {
-				es = slide.style;
-				es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = 'translate3d(0,' + (translate) + 'px,0) scale(' + scale + ')';
-				es.zIndex=0;
-			}else{
-				es = slide.style;
-				es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform ='';
-				es.zIndex=1;
+				if (i == swiper.myactive) {
+					es = slide.style;
+					es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = 'translate3d(0,' + (translate) + 'px,0) scale(' + scale + ')';
+					es.zIndex=0;
+				}else{
+					es = slide.style;
+					es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform ='';
+					es.zIndex=1;
+				}
+			}
+		},
+		//回调函数，过渡结束时触发，接收Swiper实例作为参数
+		onTransitionEnd: function(swiper) {
+			swiper.myactive = swiper.activeIndex;
+			swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+		},
+		//回调函数，每次当Swiper开始过渡动画时持续执行。transtion获取到的是Swiper的speed值。
+		onSetTransition: function(swiper, speed) {
+			for (var i = 0; i < swiper.slides.length; i++) {
+				es = swiper.slides[i].style;
+				es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = speed + 'ms';
 			}
 		}
-	},
-	//回调函数，过渡结束时触发，接收Swiper实例作为参数
-	onTransitionEnd: function(swiper) {
-		swiper.myactive = swiper.activeIndex;
-	},
-	//回调函数，每次当Swiper开始过渡动画时持续执行。transtion获取到的是Swiper的speed值。
-	onSetTransition: function(swiper, speed) {
-		for (var i = 0; i < swiper.slides.length; i++) {
-			es = swiper.slides[i].style;
-			es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = speed + 'ms';
-		}
-	}
+	});
+	
+	
+	//初始化微信
+	$.ajax({
+        url:'/php/getSign.php',
+        type:'POST',
+        data:{
+            curl:location.href
+        },
+        dataType:'json',
+        success:function(data){
+          /*
+           * 注意：
+           * 1. 所有的JS接口只能在公众号绑定的域名下调用，公众号开发者需要先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
+           * 2. 如果发现在 Android 不能分享自定义内容，请到官网下载最新的包覆盖安装，Android 自定义分享接口需升级至 6.0.2.58 版本及以上。
+           * 3. 常见问题及完整 JS-SDK 文档地址：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
+           *
+           * 开发中遇到问题详见文档“附录5-常见错误及解决办法”解决，如仍未能解决可通过以下渠道反馈：
+           * 邮箱地址：weixin-open@qq.com
+           * 邮件主题：【微信JS-SDK反馈】具体问题
+           * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
+           */
+       
+          wx.config({
+              debug: false,
+              appId: data.appid,
+              timestamp: data.timestamp+"",
+              nonceStr: data.nonceStr,
+              signature: data.signature,
+              jsApiList: [
+                'checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'onMenuShareWeibo',
+                'onMenuShareQZone',
+                'hideMenuItems',
+                'showMenuItems',
+                'hideAllNonBaseMenuItem',
+                'showAllNonBaseMenuItem',
+                'translateVoice',
+                'startRecord',
+                'stopRecord',
+                'onVoiceRecordEnd',
+                'playVoice',
+                'onVoicePlayEnd',
+                'pauseVoice',
+                'stopVoice',
+                'uploadVoice',
+                'downloadVoice',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage',
+                'getNetworkType',
+                'openLocation',
+                'getLocation',
+                'hideOptionMenu',
+                'showOptionMenu',
+                'closeWindow',
+                'scanQRCode',
+                'chooseWXPay',
+                'openProductSpecificView',
+                'addCard',
+                'chooseCard',
+                'openCard'
+              ]
+          });
+        	
+        }
+    });
+	
+	
+	 wx.ready(function () {
+		 var mtitle = "Three Body";
+		 var mdesc = "在你心中印象最深刻的人物是谁呢？";
+         var mlink = "http://wxcarlsvn.sinaapp.com/threebody.html";
+         var mimgUrl = "http://wxcarlsvn.sinaapp.com/core/img/tb/alien.png";
+        
+        // 2. 分享接口
+        // 2.1 监听“分享给朋友”，按钮点击、自定义分享内容及分享结果接口
+            wx.onMenuShareAppMessage({
+                title: mtitle,
+                desc: mdesc,
+                link: mlink,
+                imgUrl: mimgUrl
+            });
+
+
+        
+        // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+            wx.onMenuShareTimeline({
+            	title: mtitle,
+                link: mlink,
+                imgUrl: mimgUrl
+            });
+          // 2.3 监听“分享到QQ”按钮点击、自定义分享内容及分享结果接口
+            wx.onMenuShareQQ({
+           		title: mtitle,
+               desc: mdesc,
+               link: mlink,
+               imgUrl: mimgUrl
+            });
+
+      });
 });
 </script>
 
