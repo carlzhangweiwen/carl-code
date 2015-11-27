@@ -21,7 +21,52 @@ body{
 	font-weight: 300;
     font-family: 'Microsoft Yahei',Tahoma,Helvetica,Arial,sans-serif;
 }
-.bg1,.bg2,.bg3,.bg4,.bg5 {
+.music {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+    z-index: 200;
+    background-size: 100% 100%;
+    background-image: url(./core/img/tb/music_off.png);
+    background-repeat: no-repeat;
+}
+.rotate {
+    -webkit-animation: rotating 1.2s linear infinite;
+    -moz-animation: rotating 1.2s linear infinite;
+    -o-animation: rotating 1.2s linear infinite;
+    animation: rotating 1.2s linear infinite;
+}
+
+
+
+@keyframes rotating {
+	from {
+		transform: rotate(0deg)
+	}
+	to {
+		transform: rotate(360deg)
+	}
+}
+@-moz-keyframes rotating {
+	from {
+		-moz-transform: rotate(0deg)
+	}
+	to {
+		-moz-transform: rotate(360deg)
+	}
+}
+@-webkit-keyframes rotating {
+	from {
+		-webkit-transform: rotate(0deg)
+	}
+	to {
+		-webkit-transform: rotate(360deg)
+	}
+}
+
+.bg{
 	width: 100%;
 	height: 100%;
 	background-size: cover;
@@ -45,6 +90,12 @@ body{
 
 .bg5 {
 	background-image: url(./core/img/tb/bg05.jpg);
+}
+.bg6 {
+	background-image: url(./core/img/tb/bg06.jpg);
+}
+.bg7 {
+	background-image: url(./core/img/tb/bg07.jpg);
 }
 
 .mfont {
@@ -71,6 +122,7 @@ body{
     margin-left:10%;
     padding-top:0.3em;
     top:0.3em;
+    z-index:20;
 }
 .element-box1{
 	position:absolute;
@@ -79,26 +131,53 @@ body{
     margin-left:10%;
     padding-top:0.3em;
     bottom:2.5em;
+    z-index:20;
 }
+img{
+	width:10em;
+}
+.north{
+	position:relative;
+	z-index:10;
+	width:100%;
+	top:3em;
+}
+
+.nw, .ne, .sw, .se{
+	width:10em;
+	margin:0 auto;
+}
+
+
 </style>
 </head>
 
 <body>
+	<div style="display: none;">
+		<audio loop="" src="./core/mp3/seasonsOfWar.mp3" id="media" autoplay="" preload=""></audio>
+		<!-- <audio controls="controls" loop="" autoplay="" preload="">
+			<source type="audio/mp3" src="./core/mp3/seasonsOfWar.mp3">
+			<source type="audio/ogg" src="./core/mp3/seasonsOfWar.ogg">
+			Your browser does not support this audio format.
+			<embed src="./core/mp3/seasonsOfWar.mp3">
+		</audio> -->
+	</div>
+	<div id="musicoff" class="music rotate"></div>
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
 			<!-------------slide1----------------->
 			<section class="swiper-slide">
-				<div class="bg1">
+				<div class="bg bg1">
 					<div class="element-box1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="2s" swiper-animate-delay="0.5s">
 						<div style="text-align: center;" >
-							<div><span class="mfont">毁灭你，与我何干……</span></div>
+							<div><span class="mfont">毁灭你，与你何干……</span></div>
 						</div>
 					</div>
 				</div>
 			</section>
 			<!-------------slide2----------------->
 			<section class="swiper-slide">
-				<div class="bg2">
+				<div class="bg bg2">
 					<div class="element-box ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">
 						<div style="text-align: center;" >
 							<div><span class="mfont">在西方的天际， 正在云海中下沉的</span></div>
@@ -117,8 +196,8 @@ body{
 			</section>
 			<!-------------slide3----------------->
 			<section class="swiper-slide">
-				<div class="bg3">
-					<div class="element-box ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">
+				<div class="bg bg3">
+					<div class="element-box1">
 						<div class="ani" style="text-align: left;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">
 							<div><span class="mfont">“要多想。”<br>“想了以后呢?”<br>“北海，我只能告诉你那以前要多想。”</span></div>
 						</div>
@@ -127,35 +206,69 @@ body{
 			</section>
 			<!-------------slide4----------------->
 			<section class="swiper-slide">
-				<div class="bg4">
-					<div class="element-box ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">
-						<div class="black-box">
-							<div class="ani" style="text-align: left;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">
-								<div><span class="mfont">但凡失去也是美<br>用你一分钟<br>都足够我生醉梦死</span></div>
-							</div>
+				<div class="bg bg4">
+					<div class="element-box">
+						<div class="black-box ani" style="text-align: left;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">
+							<div><span class="mfont">但凡失去也是美<br>用你一分钟<br>都足够我生醉梦死</span></div>
 						</div>
 					</div>
 				</div>
 			</section>
 			<!-------------slide5----------------->
 			<section class="swiper-slide">
-				<div class="bg5">
-					<div class="element-box1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">
-						<div class="black-box">
-							<div class="ani" style="text-align: left;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">
-								<div><span class="mfont">未曾想执剑护天下<br>只想看尽世间繁华</span></div>
-							</div>
+				<div class="bg bg5">
+					<div class="element-box1">
+						<div class="black-box ani" style="text-align: center;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">
+							<div><span class="mfont">未曾想执剑护天下<br>只想看尽世间繁华</span></div>
 						</div>
 					</div>
 				</div>
 			</section>
 
-		</div>
+			<!-------------slide6----------------->
+			<section class="swiper-slide">
+				<div class="bg bg6">
+						<div class="north">
+							<div class="nw "  swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s"><img src="./core/img/tb/wd/waterdrop.jpg"></div>
+							<div class="ne "  swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s"><img src="./core/img/tb/wd/waterdrop01.jpg"></div>
+							<div class="sw " swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s"><img src="./core/img/tb/wd/waterdrop02.jpg"></div>
+							<div class="se "  swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s"><img src="./core/img/tb/wd/waterdrop03.jpg"></div>
+						</div>
+						<div class="element-box1">
+							<div class="black-box ani" style="text-align: center;" swiper-animate-effect="flash" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">
+								<div><span class="mfont">水滴来了</span></div>
+							</div>
+						</div>
+				</div>
+			</section>
+			<!-------------slide7----------------->
+			<section class="swiper-slide">
+				<div class="bg bg7">
+					<div class="element-box1">
+						<div class="black-box ani" style="text-align: left;" swiper-animate-effect="rubberBand" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">
+							<div><span class="mfont">关于《三体》，有素材的同学，可发邮件给我=^_^=：<br>carlzhangweiwen@sina.com</span></div>
+						</div>
+					</div>
+				</div>
+			</section>
 	</div>
 
 <script type = "text/javascript">
 
 $(function(){
+	
+	$('#musicoff').click(function(){
+		var myaudio = $('audio').get(0);
+		var p = myaudio.paused;
+		if(p==false) {
+			$(this).removeClass('rotate');
+			myaudio.pause();
+		} else{
+			$(this).addClass('rotate');
+			myaudio.play();
+		} 
+	});
+	
 	function fixPagesHeight() {
 		$('.swiper-slide,.swiper-container').css({
 			height: $(window).height(),
@@ -298,7 +411,7 @@ $(function(){
 	
 	 wx.ready(function () {
 		 var mtitle = "Three Body";
-		 var mdesc = "在你心中印象最深刻的人物是谁呢？";
+		 var mdesc = "读完《三体》后，给我留下较深印象的人物。";
          var mlink = "http://wxcarlsvn.sinaapp.com/threebody.html";
          var mimgUrl = "http://wxcarlsvn.sinaapp.com/core/img/tb/alien.png";
         
@@ -333,4 +446,3 @@ $(function(){
 
 </body>
 </html>
-
