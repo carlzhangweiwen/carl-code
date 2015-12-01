@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Iterator;
+import java.util.UUID;
 
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
@@ -29,8 +30,11 @@ public class FileUploadController {
 		float imageQuality = 0.3f;//文件压缩比例
 
         if (!file.isEmpty()) {
+        	System.out.println(file.getContentType());
+        	
+        	UUID uuid = UUID.randomUUID();
             InputStream ips = file.getInputStream();
-            OutputStream ops = new FileOutputStream(new File("e:\\data\\compressed_file5.jpg"));
+            OutputStream ops = new FileOutputStream(new File("e:\\data\\"+uuid.toString()+".jpg"));
             
             //读文件
             BufferedImage bufferedImage = ImageIO.read(ips);
@@ -38,24 +42,25 @@ public class FileUploadController {
             //Get image writers
             Iterator<ImageWriter> imageWriters = ImageIO.getImageWritersByFormatName("jpg");
             
-            if(!imageWriters.hasNext())throw new IllegalStateException("Writers Not Found!!");
-            
-            ImageWriter imageWriter = imageWriters.next();
-            ImageOutputStream imageOutputStream = ImageIO.createImageOutputStream(ops);
-            imageWriter.setOutput(imageOutputStream);
-            
-            ImageWriteParam writeParam = imageWriter.getDefaultWriteParam();
-            writeParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
-            writeParam.setCompressionQuality(imageQuality);
-            
-            //Created image
-            imageWriter.write(null, new IIOImage(bufferedImage, null, null), writeParam);
+            if(imageWriters.hasNext()){
+            	ImageWriter imageWriter = imageWriters.next();
+            	ImageOutputStream imageOutputStream = ImageIO.createImageOutputStream(ops);
+            	imageWriter.setOutput(imageOutputStream);
+            	
+            	ImageWriteParam writeParam = imageWriter.getDefaultWriteParam();
+            	writeParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
+            	writeParam.setCompressionQuality(imageQuality);
+            	
+            	//Created image
+            	imageWriter.write(null, new IIOImage(bufferedImage, null, null), writeParam);
+            	// close all streams
+            	imageOutputStream.close();
+            	imageWriter.dispose();
+            }
             
          // close all streams
     		ips.close();
     		ops.close();
-    		imageOutputStream.close();
-    		imageWriter.dispose();
             
             // store the bytes somewhere
            return "redirect:/";
