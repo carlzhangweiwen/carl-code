@@ -11,6 +11,8 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
+	
+	<context:component-scan base-package="com.carl.carlapp" />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
@@ -112,5 +114,12 @@
 		<property name="basename" value="message" />
 	</bean>
 	
-	<context:component-scan base-package="com.carl.carlapp" />
+	
+	<bean id="multipartResolver"
+	    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	
+	    <!-- one of the properties available; the maximum file size in bytes -->
+	    <property name="maxUploadSize" value="100000"/>
+	</bean>
+	
 </beans>
