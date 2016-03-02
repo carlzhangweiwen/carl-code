@@ -1,76 +1,87 @@
 package carlspringtest;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.DESedeKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
-import org.junit.Test;
 
 
 public class TokenG {
+	 // 24位密钥
+    public static final String  SECRET = "a60e73ec8c752ac89b521777";
+	public String getToken(String appid) throws Exception{
+		// Digest
+		//Date now = new Date();
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(2015, 11, 11);
+		Date now = calendar.getTime();
 	
-	@Test
-	public void test1() throws Exception {
-		KeyGenerator keyGenerator = KeyGenerator.getInstance("DES");
-		keyGenerator.init(56);// 选择DES算法,密钥长度必须为56位
-		SecretKey key = keyGenerator.generateKey();
+        SimpleDateFormat d1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String orgToken = "company=carl;appType=SINGER;appid=" + appid
+					+ ";currentTime=" + d1.format(now);
 		
+		//DESede 24bit
+		DESedeKeySpec keySpec = new DESedeKeySpec(SECRET.getBytes());
 		
-		Cipher c = Cipher.getInstance("DES");
+		SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DESede");
+		SecretKey key = keyFactory.generateSecret(keySpec);
+		
+		Cipher c = Cipher.getInstance("DESede");
 		c.init(Cipher.ENCRYPT_MODE, key);
-		byte[] result = c.doFinal("carlzhang".getBytes("utf-8"));
-		System.out.println(new String(result));
-		String encode = Base64.encodeBase64String(result);
-		System.out.println(encode);
-		System.out.println(new String(Base64.decodeBase64(encode)));
+		byte[] result = c.doFinal(orgToken.getBytes("utf-8"));
+		return 	Base64.encodeBase64String(result);
 	}
 	
-	@Test
-	public void test2() {
-		try {
-			//DES 8bit
-			DESKeySpec keySpec = new DESKeySpec("testddds".getBytes());
-			
-			SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
-			SecretKey key = keyFactory.generateSecret(keySpec);
-			
-			Cipher c = Cipher.getInstance("DES");
-			c.init(Cipher.ENCRYPT_MODE, key);
-			byte[] result = c.doFinal("carl".getBytes());
-			System.out.println(new String(result));
-			
-			c.init(Cipher.DECRYPT_MODE, key);
-			byte[] r2 = c.doFinal(result);
-			System.out.println(new String(r2));
-		} catch (Exception e) {
-			e.printStackTrace();
+	public void authToken(String token, String appid) throws Exception{
+		//DESede 24bit
+		DESedeKeySpec keySpec = new DESedeKeySpec(SECRET.getBytes());
+		
+		SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DESede");
+		SecretKey key = keyFactory.generateSecret(keySpec);
+		
+		Cipher c = Cipher.getInstance("DESede");
+		c.init(Cipher.DECRYPT_MODE, key);
+		
+		String text = new String(c.doFinal(Base64.decodeBase64(token)));//company=carl;appType=SINGER;appid=car;currentTime=2016-01-04 15:24:08
+		
+		System.out.println(text);
+		
+		String[] textsVals = text.split(";");
+		Map<String, String> map = new HashMap<String, String>();
+		for (int i = 0; i < textsVals.length; i++) {
+			String[] t = textsVals[i].split("=");
+			map.put(t[0], t[1]);
 		}
-	}
-	@Test
-	public void test3() {
-		try {
-			//DESede 24bit
-			DESedeKeySpec keySpec = new DESedeKeySpec("cde5ghightadsdccdeddDDss".getBytes());
-			
-			SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DESede");
-			SecretKey key = keyFactory.generateSecret(keySpec);
-			
-			Cipher c = Cipher.getInstance("DESede");
-			c.init(Cipher.ENCRYPT_MODE, key);
-			byte[] result = c.doFinal("carl".getBytes());
-			System.out.println(new String(result));//��'�~W^
-			
-			c.init(Cipher.DECRYPT_MODE, key);
-			byte[] r2 = c.doFinal(result);
-			System.out.println(new String(r2));//carl
-		} catch (Exception e) {
-			e.printStackTrace();
+		System.out.println(map);
+		
+		String currTime = map.get("currentTime");
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date date = format.parse(currTime);
+		
+		Date now = new Date();
+		if((now.getTime()-date.getTime()) > 7*24*60*60*1000){//检测是否登录时间超过7天
+			System.out.println("no, the time is to long...");
 		}
+		if(!appid.equals(map.get("appid"))){//检测是否相同
+			System.out.println("no, the appid cannot matched...");
+		}
+		System.out.println(now.getTime()-date.getTime());
 	}
+	
+	public static void main(String[] args) throws Exception {
+		TokenG g = new TokenG();
+		String token = g.getToken("car");
+		g.authToken(token,"car");
+	}
+	
 
 }

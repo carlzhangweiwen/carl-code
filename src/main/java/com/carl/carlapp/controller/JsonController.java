@@ -19,7 +19,7 @@ public class JsonController {
 	//向页面直接输出Json字符串
     @ResponseBody
     @RequestMapping(value="/showUser", method = RequestMethod.GET)
-    public List showUserJson(){
+    public List<User> showUserJson(){
     	logger.info("test json....");
         List<User> list  = new ArrayList<User>();
         list.add(new User("carl", 20));

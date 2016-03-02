@@ -1,0 +1,39 @@
+/*
+author:"liuzhihsan"
+date:"2015-12-1"
+project:"idb"
+*/
+/****************************二级导航 start*******************************/
+.l-tab-type{ height: 2rem; position: relative; overflow: hidden; border-bottom: 1px #e5e5e5 solid;	}
+.l-tab-type ul{position: absolute; left: 0; width: 100%; height: 2.2rem; line-height: 2.2rem;}
+.l-tab-type ul li{}
+.l-tab-type ul li a{ display:inline-block;float: left; width: 25%; text-align: center; line-height: 2.2rem;}
+.l-tab-type ul li a .ico{margin-left:.2rem; margin-top: .2rem;}
+.l-tab-type ul li a .ico-arrow{width: .3rem; height: .5rem; position: relative; background: none;}
+.l-tab-type ul li a .ico-arrow:before,.l-tab-type ul li a .ico-arrow:after{content: ""; position: absolute; display: block; width: 3px; height: 3px; border: 1px solid #b2b2b2; border-top: 0; border-right: 0;}
+.l-tab-type ul li a .ico-arrow:before{top: .2rem; left: .1rem; transform: rotate(135deg); -webkit-transform: rotate(135deg);-moz-transform: rotate(135deg);}
+.l-tab-type ul li a .ico-arrow:after{top: .4rem; left: .1rem; transform: rotate(-45deg); -webkit-transform: rotate(-45deg);-moz-transform: rotate(-45deg);}
+.l-tab-type ul li.up a,.l-tab-type ul li.down a{ color: red;}
+.l-tab-type ul li.up a .ico-arrow:before{ border-left: 1px solid red !important; border-bottom: 1px solid red !important;}
+.l-tab-type ul li.down a .ico-arrow:after{border-bottom: 1px solid red !important; border-left: 1px solid red !important;}
+/****************************二级导航 end*******************************/
+
+/****************************商品列表 start*******************************/
+.l-goods-list {overflow:hidden;}
+.l-goods-list .l-goods-list-item{overflow:hidden; border-bottom:1px #e5e5e5 solid; position: relative; background: #fff;}
+.l-goods-list .l-goods-list-item .l-goods{ overflow: hidden; background-color: #fff; color: #999; font-size: .8rem; position: relative; padding:.8rem .6rem .8rem .6rem;}
+.l-goods-photo{float: left;margin: 0 auto; width: 5.4rem; height: 4rem; margin-top: .4rem;}
+.l-goods-photo a{color: #0079fe; text-decoration: none; outline: none;}
+.l-goods-photo img{ width: 100%;}
+.l-goods-info{ float: left; width: 65%;margin-left: 5%;}
+.l-goods-info .l-goods-title{max-height: 2rem; letter-spacing: .03rem; white-space: normal; font-size: .8rem; text-overflow: initial; margin-bottom: .8rem; width: 100%;overflow: hidden; word-break:keep-all; white-space:nowrap; text-overflow:ellipsis;}
+.l-goods-bar{margin-top: 1.3rem;}
+.wrap{ position: relative; margin-bottom: 2px; height: 5px; border-radius: 5px; background-color: #e0e2e4; overflow: hidden;}
+.lad{ overflow: hidden; display: block; height: 100%; border-radius: 4px;}
+.ys{display: block; height: 100%; border-radius: 4px;width: 60%; background: #FFA538; background: -webkit-gradient(linear,left top,right top,from(#5eaaad),to(#5eaaad));background: -moz-linear-gradient(left,#5eaaad,#5eaaad);background: -o-linear-gradient(left,#5eaaad,#5eaaad); background: -ms-linear-gradient(left,#5eaaad,#FF8533);}
+.text{ overflow: hidden;}
+.text li{line-height: 1.5rem; letter-spacing: .05rem; color: #a3a3a3; font-size: .66rem;}
+.text li:first-child{ float: left;}
+.text li:last-child{ float: right;}
+.text li i{ color: red;}
+/****************************商品列表 start*******************************/

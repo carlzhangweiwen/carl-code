@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app="myApp">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>全部商品</title>
+<link href="./css/bass.css" rel="stylesheet" type="text/css">
+<link href="./css/goods.css" rel="stylesheet" type="text/css">
+<script src="../core/js/angular.js"></script>
+<script src="../core/js/angular-route.js"></script>
+<body>
+<div ng-include="'goods.html'">a.html</div>
+<!-- <iframe src="goods.html"></iframe> -->
+<header>
+<h1>Header</h1>
+</header>
+<div class="content">
+	<div ng-view></div>
+</div>
+<footer>
+	<h5>Footer</h5>
+</footer>
+<script>
+	angular.module('myApp',[]).
+		config(['$routeProvider', function($routeProvider){
+			$routeProvider.when('/',{
+				templateUrl:'temp.html',
+				controller:'HomeController'
+			})
+			.otherwise({
+				redirectTo:'/'
+			});
+		}]);
+</script>
+</body>
+</html>

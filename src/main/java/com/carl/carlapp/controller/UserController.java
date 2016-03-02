@@ -19,6 +19,7 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(value="/loginForm",method=RequestMethod.POST)
 	public User loginPost(@RequestBody User user){
+		System.out.println("------------这里是分隔符------------------");
 		System.out.println("username:"+user.getName());
 		System.out.println("password:"+user.getPassword());
 		return user;

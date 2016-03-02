@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>angularJs directive(指令)</title>
+<style>
+body{font:12px/1.5 tahoma,arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif}
+.strike {
+  text-decoration: line-through;
+}
+.bold {
+    font-weight: bold;
+}
+.red {
+    color: red;
+}
+.odd {
+  color: red;
+}
+.even {
+  color: blue;
+}
+.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+</style>
+<script src="//cdn.bootcss.com/angular.js/1.2.19/angular.js"></script>
+</head>
+<body ng-app="formExample">
+
+<h2>AngularJS Sample Application</h2>
+<div>
+	<h3>input[checkbox]</h3>
+	<form name="myForm" ng-controller="ExampleController">
+	  Value1: <input type="checkbox" ng-model="value1"> <br/>
+	  Value2: <input type="checkbox" ng-model="value2"
+	                 ng-true-value="'YES'" ng-false-value="'NO'"> <br/>
+	  <tt>value1 = {{value1}}</tt><br/>
+	  <tt>value2 = {{value2}}</tt><br/>
+	 </form>
+</div>
+
+<div>
+	<hr>
+	<h3>input[date]</h3>
+	<form name="dateForm" ng-controller="DateController">
+	   Pick a date in 2015:
+	   <input type="date" id="exampleInput" name="input" ng-model="value"
+	       placeholder="yyyy-MM-dd" min="2015-01-01" max="2015-12-31" required />
+	   <span class="error" ng-show="dateForm.input.$error.required">
+	       Required!</span>
+	   <span class="error" ng-show="dateForm.input.$error.date">
+	       Not a valid date!</span>
+	    <tt>value = {{value}}</tt><br/>
+	    <tt>value = {{value | date: "yyyy-MM-dd"}}</tt><br/>
+	    <tt>dateForm.input.$valid = {{dateForm.input.$valid}}</tt><br/>
+	    <tt>dateForm.input.$error = {{dateForm.input.$error}}</tt><br/>
+	    <tt>dateForm.$valid = {{dateForm.$valid}}</tt><br/>
+	    <tt>dateForm.$error.required = {{!!dateForm.$error.required}}</tt><br/>
+	</form>
+</div>
+<script>
+  var app = angular.module('formExample', []);
+  app.controller('ExampleController', ['$scope', function($scope) {
+	  console.log('...');
+      $scope.value1 = true;
+      $scope.value2 = 'YES'
+    }]); 
+  
+  /* app.controller('DateController', ['$scope', function($scope) {
+    $scope.value = new Date(2015, 9, 22);
+    console.log($scope.value);
+  }]);*/
+  //上下两种写法都可以
+  function DateController($scope){
+	$scope.value = new Date(2015, 9, 22);
+  }
+</script>
+<div>
+	<hr>
+	<h3>ng-class</h3>
+	<p ng-class="{strike: deleted, bold: important, red: error}">Map Syntax Example</p>
+	<input type="checkbox" ng-model="deleted"> deleted (apply "strike" class)<br>
+	<input type="checkbox" ng-model="important"> important (apply "bold" class)<br>
+	<input type="checkbox" ng-model="error"> error (apply "red" class)
+	<hr>
+	<p ng-class="style">Using String Syntax</p>
+	<input type="text" ng-model="style" placeholder="Type: bold strike red">
+	<hr>
+	<p ng-class="[style1, style2, style3]">Using Array Syntax</p>
+	<input ng-model="style1" placeholder="Type: bold, strike or red"><br>
+	<input ng-model="style2" placeholder="Type: bold, strike or red"><br>
+	<input ng-model="style3" placeholder="Type: bold, strike or red"><br>
+</div>
+<div>
+	<hr>
+	<h3>ng-class-odd/even</h3>
+	<ol ng-init="names=['John', 'Mary', 'Cate', 'Suz']">
+	  <li ng-repeat="name in names">
+	   <span ng-class-odd="'odd'" ng-class-even="'even'">
+	     {{name}} &nbsp; &nbsp; &nbsp;
+	   </span>
+	  </li>
+	</ol>
+</div>
+<div><hr>
+	<h3>ng-click</h3>
+	<button ng-click="count = count + 1" ng-init="count=0">
+	  Increment
+	</button>
+	<span>
+	  count: {{count}}
+	</span>
+</div>
+<div><hr>
+	<h3>ng-show/hide</h3>
+	<span>Click me: </span><input type="checkbox" ng-model="checked"><br/>
+	<div>
+	  Show:
+	  <div style="background-color:#ccc" ng-show="checked">
+	    <span> I show up when your checkbox is checked.</span>
+	  </div>
+	</div>
+	<div>
+	  Hide:
+	  <div style="background-color:#258be3;color:white" ng-hide="checked">
+	    <span> I hide when your checkbox is checked.</span>
+	  </div>
+	</div>
+</div>
+<br/>
+</body>
+</html>

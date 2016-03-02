@@ -1,0 +1,54 @@
+@charset:"uf-8";
+body{ min-width:320px; background: #f1f4f6;font-size:12px; font-family:arial,Microsoft YaHei, Helvetica, sans-serif; color:#222; tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0)}
+html,body,button,input,select,textarea,figure,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,p,span,u{ margin:0; padding:0}
+@media screen and (min-width:480px){html,body,button,input,select,textarea{font-size:16px}}
+@media screen and (min-width:640px){html,body,button,input,select,textarea{font-size:20px}}
+ol, ul, li,input{ list-style:none}
+i,o,cite,em{ font-style:normal}
+input{ outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0); -webkit-appearance:none; font-family:"微软雅黑"}
+input::-webkit-input-placeholder,input::-moz-placeholder{ color:#d0d0d0}.clearfix{ overflow:hidden; zoom:1}
+img { border:0; }
+.clearfix{ overflow:hidden; zoom:1}
+.clear{ clear:both}
+.left{ float:left}
+.right{ float:right}
+a{ color:#333; text-decoration:none}
+a:active{ color:#f6851f; text-decoration:none}
+p{ line-height:1.2rem}
+.of{ text-indent:-999px; overflow:hidden}
+
+/****************************ladding start*******************************/
+
+.ladding{text-align: center; padding: .5rem 0; font-size: .8rem; color: #999;}
+.ladding img{ vertical-align: middle; margin-right: .4rem; width: 1.4rem;}
+
+/****************************ladding end*******************************/
+
+/****************************tab start*******************************/
+.l-tab{ padding-bottom: 2.7rem; overflow: hidden;}
+.l-tab ul{ box-sizing: border-box; position: fixed; left: 0; z-index: 9;  background:rgba(255,255,255,0.8); width: 100%; border-bottom: 1px #e5e5e5 solid;}
+.l-tab ul:after{ content: ""; clear: both;}
+.l-tab ul li a{width: 25%; float: left; text-align: center; font-size:.8rem;line-height: 2.7rem; position: relative;}
+.l-tab ul li a.cur{ color: red;}
+.l-tab ul li a.cur:after{ content:""; position:absolute; left:0; width:100%; bottom: 0; border-bottom:2px red solid;}
+/****************************tab end*******************************/
+
+/****************************进度条 start*******************************/
+.l-goods-bar{margin-top: 1.3rem;}
+.wrap{ position: relative; margin-bottom: .2rem; height: .4rem; border-radius: .4rem; background-color: #e0e2e4; overflow: hidden;}
+.lad{ overflow: hidden; display: block; height: 100%; border-radius: .4rem;}
+.ys{display: block; height: 100%; border-radius: .4rem;width: 60%; background: #FFA538; background: -webkit-gradient(linear,left top,right top,from(#5eaaad),to(#5eaaad));background: -moz-linear-gradient(left,#5eaaad,#5eaaad);background: -o-linear-gradient(left,#5eaaad,#5eaaad); background: -ms-linear-gradient(left,#5eaaad,#FF8533);}
+.text{ overflow: hidden;}
+.text li{line-height: 1.5rem; letter-spacing: .05rem; color: #a3a3a3; font-size: .66rem;}
+.text li:first-child{ float: left;}
+.text li:last-child{ float: right;}
+.text li i{ color: red;}
+/****************************进度条 end*******************************/
+
+/****************************顶部栏 start*******************************/
+.l-header{position: relative; margin-bottom: 2.7rem;}
+.header{position: fixed; z-index: 10;left: 0;right: 0;height: 2.7rem; border: 1px solid #e5e5e5; background: rgba(255,255,255,.8);top: 0;border-width: 0 0 1px;text-align: center;}
+.header .l-back{display:block; position: absolute; left: 0; height:1.8rem; padding: .9rem 1rem 0 1rem;overflow: hidden;}
+.header .l-back .l-ico-back{display:block;width: .6rem;height: .6rem;border-top: 2px #8a8a8a solid;border-left: 2px #8a8a8a solid;color: #8a8a8a;transform: rotate(-45deg);-webkit-transform: rotate(-45deg);}
+.header h1{font-size: 1.1rem;color: #222;font-weight: normal;letter-spacing: .1rem; line-height: 2.7rem;}
+/****************************顶部栏 end*******************************/

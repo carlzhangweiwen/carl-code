@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.carl</groupId>
-	<artifactId>carlt</artifactId>
-	<name>carlt</name>
+	<artifactId>carl</artifactId>
+	<name>autumnsinger</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -156,6 +156,36 @@
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
+		</dependency>
+		
+		<!-- base 64 -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
+		<!-- dom4j -->
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<!-- httpclient -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>org.json</artifactId>
+			<version>chargebee-1.0</version>
+		</dependency>
+		<!--  memcached client -->
+		<dependency>
+			<groupId>com.google.code.simple-spring-memcached</groupId>
+			<artifactId>spymemcached</artifactId>
+			<version>2.8.4</version>
 		</dependency>
 	
 		<!-- Test -->

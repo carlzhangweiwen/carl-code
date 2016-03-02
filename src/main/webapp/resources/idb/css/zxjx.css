@@ -1,0 +1,23 @@
+/*
+author:"liuzhihsan"
+date:"2015-12-1"
+project:"idb"
+*/
+/****************************最新揭晓 start*******************************/
+.l-zxjx{padding:.3rem;}
+.l-zxjx:after{content: ""; display: table; clear: both;}
+.l-list-conten{-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;float: left;width: 50%; padding: .25rem;}
+.l-list{display: block; border-radius: 4px; padding-top: .5rem; background: #fff; position: relative;}
+.l-list-img{width: 6.78rem; height:7.6rem; margin: 0 auto; background-size: contain; background-position: center; background-repeat: no-repeat; border-radius: 4px 4px 0 0;}
+.l-list-img img{ width: 100%; height: 100%;}
+.l-list-name{ font-size: .8rem; color:#212121; margin-top:.5rem; letter-spacing: .05rem; margin-left: .5rem;overflow: hidden; word-break:keep-all; white-space:nowrap; text-overflow:ellipsis; }
+.l-list-mes{ padding: .7rem .5rem .4rem .5rem;}
+.l-list-mes p{ margin-bottom: .15rem; font-size: .66rem; color:#a3a3a3; letter-spacing: .04rem; overflow: hidden; word-break:keep-all; white-space:nowrap; text-overflow:ellipsis;}
+.l-list-mes p .red{color: red;}.l-list-mes p .blue{color: #197ce2; margin-left: -.18rem;}.l-list-mes p cite{ letter-spacing: .3rem; }
+.l-list-mes p:last-child{margin-bottom: 0;}
+.l-list-time{padding: 1.5rem .5rem 1.45rem .5rem;}
+.l-list-time div{ border-radius:.2rem;  width:3.4rem; font-size: .66rem; text-align: center; border: 1px #e03333 solid; color: #e03333;}
+.l-list-time p{ font-size: 1.6rem; color:#e03333; margin-top: 1rem;}
+.wang{ display: inline-block !important;}
+.wang img{ display: inline-block !important;}
+/****************************最新揭晓 end*******************************/
