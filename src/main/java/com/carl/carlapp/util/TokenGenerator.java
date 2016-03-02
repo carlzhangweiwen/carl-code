@@ -22,7 +22,7 @@ import sun.misc.BASE64Encoder;
  */
 public class TokenGenerator {
     // 24位密钥
-    public static final String  SECRET = "a60e73ec8c752ac89b521777";
+    public static final String  SECRET = "carl73ec8c752ac89b521777";
 	
 	/**
 	 * 检查密钥长度,如不足24位,则加0x00补齐.

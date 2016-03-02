@@ -24,8 +24,8 @@ import javax.imageio.stream.ImageOutputStream;
  */
 public class CompressJPEGFileExample {
 	public static void main(String[] args) throws FileNotFoundException, IOException{
-		File imageFile = new File("e:\\2.jpg");
-		File compressedImageFile = new File("e:\\compressed_file5.jpg");
+		File imageFile = new File("f:\\IMG_20151219_172146.jpg");//source
+		File compressedImageFile = new File("f:\\compressed_file5.jpg");//result
 
 		InputStream inputStream = new FileInputStream(imageFile);
 		OutputStream outputStream = new FileOutputStream(compressedImageFile);
